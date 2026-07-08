@@ -10,6 +10,7 @@ body {
     background: linear-gradient(135deg, #e0eafc 0%, #eef2f7 50%, #cfdef3 100%);
     background-attachment: fixed;
     background-size: cover;
+    background-repeat: no-repeat;
     font-family: var(--bs-font-sans-serif);
     color: #2b2d42;
 }
