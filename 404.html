@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="id">
+    <head>
+        <meta charset="utf-8" />
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <meta content="ie=edge" http-equiv="X-UA-Compatible" />
+        <title>Halaman Tidak Ditemukan - ArX Link</title>
+
+        <!-- Dynamic Base Path Resolving -->
+        <base id="base-tag" href="/" />
+        <script>
+            document.getElementById("base-tag").href =
+                window.location.hostname === "arxdev40.github.io"
+                    ? "https://arxdev40.github.io/arxlink/"
+                    : window.location.origin + "/";
+        </script>
+
+        <meta
+            content="Maaf, halaman yang Anda cari di ArX Link tidak ditemukan."
+            name="description"
+        />
+
+        <!-- Preconnect for performance -->
+        <link href="https://cdn.jsdelivr.net" rel="preconnect" />
+        <link href="https://cdn.jsdelivr.net" rel="dns-prefetch" />
+        <link href="https://fonts.googleapis.com" rel="preconnect" />
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+
+        <!-- Poppins Font -->
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+
+        <!-- Bootstrap 5.3.8 CSS -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+        />
+        <!-- Custom CSS -->
+        <link href="css/style.min.css" rel="stylesheet" />
+    </head>
+
+    <body
+        class="align-items-center d-flex flex-column justify-content-center min-dvh-100 text-center"
+    >
+        <div
+            class="mx-auto p-4 rounded shadow-sm text-center navbar-glass border"
+            style="max-width: 420px; margin: 1.5rem"
+        >
+            <!-- Warning Icon -->
+            <svg
+                aria-hidden="true"
+                class="mb-4"
+                fill="#dc3545"
+                height="80"
+                viewBox="0 0 16 16"
+                width="80"
+                xmlns="http://www.w3.org/2000/svg"
+            >
+                <path
+                    d="M7.938 2.016A.13.13 0 0 1 8.002 2a.13.13 0 0 1 .063.016.15.15 0 0 1 .054.057l6.857 11.667c.036.06.035.124.002.183a.2.2 0 0 1-.054.06.1.1 0 0 1-.066.017H1.146a.1.1 0 0 1-.066-.017.2.2 0 0 1-.054-.06.18.18 0 0 1 .002-.183L7.884 2.073a.15.15 0 0 1 .054-.057m1.044-.45a1.13 1.13 0 0 0-1.96 0L.165 13.233c-.457.778.091 1.767.98 1.767h13.713c.889 0 1.438-.99.98-1.767z"
+                />
+                <path
+                    d="M7.002 12a1 1 0 1 1 2 0 1 1 0 0 1-2 0M7.1 5.995a.905.905 0 1 1 1.8 0l-.35 3.507a.552.552 0 0 1-1.1 0z"
+                />
+            </svg>
+
+            <h1 class="fw-bold h2 mb-3 text-dark">404</h1>
+            <h2 class="fw-semibold h4 mb-3 text-dark">
+                Halaman Tidak Ditemukan
+            </h2>
+            <p class="text-secondary mb-4">
+                Maaf! Sepertinya kami tidak dapat menemukan halaman yang Anda
+                cari.
+            </p>
+
+            <a
+                class="btn btn-primary fw-medium px-4 py-2 shadow-sm rounded-pill"
+                href="./"
+                aria-label="Kembali ke beranda ArX Link"
+            >
+                Kembali ke Beranda
+            </a>
+        </div>
+
+        <!-- Alpine.js & Custom Scripts -->
+        <script
+            defer
+            src="https://cdn.jsdelivr.net/npm/alpinejs/dist/cdn.min.js"
+        ></script>
+        <script src="js/app.min.js"></script>
+    </body>
+</html>
+

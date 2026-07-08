@@ -1,0 +1,466 @@
+<!doctype html>
+<html lang="id" x-data="appData">
+    <head>
+        <meta charset="utf-8" />
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+        <meta content="ie=edge" http-equiv="X-UA-Compatible" />
+        <title>ArX Link - Arya Putra Sadewa</title>
+
+        <link rel="canonical" href="https://arxdev40.github.io/arxlink/" />
+
+        <!-- Preconnect to CDNs & Google Fonts for better performance -->
+        <link href="https://cdn.jsdelivr.net" rel="preconnect" />
+        <link href="https://cdn.jsdelivr.net" rel="dns-prefetch" />
+        <link href="https://fonts.googleapis.com" rel="preconnect" />
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin />
+
+        <!-- Google Fonts Poppins -->
+        <link
+            href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+            rel="stylesheet"
+        />
+
+        <!-- Bootstrap 5.3.8 CSS -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+        />
+        <!-- Bootstrap Icons -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.min.css"
+            rel="stylesheet"
+        />
+        <!-- AOS (Animate On Scroll) CSS -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/aos/dist/aos.min.css"
+            rel="stylesheet"
+        />
+        <!-- Custom Stylesheet -->
+        <link href="css/style.min.css" rel="stylesheet" />
+
+        <!-- SEO Meta Tags -->
+        <meta
+            content="Hubungi Arya Putra Sadewa melalui email atau temukan tautan media sosial resminya seperti GitHub, Facebook, Instagram, Threads, dan X."
+            name="description"
+        />
+        <meta
+            content="Arya Putra Sadewa, ArX Developer, ArX Link, Link in Bio, Web Developer Indonesia"
+            name="keywords"
+        />
+        <meta content="Arya Putra Sadewa" name="author" />
+
+        <!-- Open Graph (OG) Meta Tags for Social Media Sharing -->
+        <meta content="ArX Link - Arya Putra Sadewa" property="og:title" />
+        <meta content="website" property="og:type" />
+        <meta content="https://arxdev40.github.io/arxlink/" property="og:url" />
+        <meta
+            content="https://arxdev40.github.io/arxlink/og.png"
+            property="og:image"
+        />
+        <meta content="Logo resmi ArX Link" property="og:image:alt" />
+        <meta
+            content="Hubungi Arya Putra Sadewa melalui email atau temukan tautan media sosial resminya."
+            property="og:description"
+        />
+        <meta content="ArX Link" property="og:site_name" />
+        <meta content="id_ID" property="og:locale" />
+
+        <!-- Twitter Card Meta Tags -->
+        <meta content="summary" name="twitter:card" />
+        <meta content="https://x.com/arxdev40" name="twitter:site" />
+        <meta content="ArX Link - Arya Putra Sadewa" name="twitter:title" />
+        <meta
+            content="Hubungi Arya Putra Sadewa melalui email atau temukan tautan media sosial resminya."
+            name="twitter:description"
+        />
+        <meta
+            content="https://arxdev40.github.io/arxlink/og.png"
+            name="twitter:image"
+        />
+
+        <!-- App Icons & PWA Webmanifest -->
+        <link rel="icon" href="favicon.ico" sizes="any" />
+        <link rel="icon" href="icon.svg" type="image/svg+xml" />
+        <link rel="apple-touch-icon" href="icon.png" />
+        <link href="site.webmanifest" rel="manifest" />
+
+        <meta content="#0d6efd" name="theme-color" />
+
+        <!-- Structured Data (JSON-LD) for SEO Profile Page -->
+        <script type="application/ld+json">
+            {
+                "@context": "https://schema.org",
+                "@type": "ProfilePage",
+                "mainEntity": {
+                    "@type": "Person",
+                    "name": "Arya Putra Sadewa",
+                    "alternateName": "arxdev40",
+                    "jobTitle": "Junior Web Developer",
+                    "image": "https://avatars.githubusercontent.com/u/296531533",
+                    "sameAs": [
+                        "https://github.com/arxdev40",
+                        "https://facebook.com/arxdev40",
+                        "https://instagram.com/arxdev40",
+                        "https://threads.net/@arxdev40",
+                        "https://x.com/arxdev40"
+                    ]
+                }
+            }
+        </script>
+    </head>
+
+    <body class="d-flex flex-column min-dvh-100" x-cloak>
+        <!-- Header / Navigation Bar -->
+        <header
+            class="navbar-glass container mt-sm-3 navbar navbar-expand rounded shadow sticky-top"
+            data-aos="fade-down"
+        >
+            <div class="container-fluid">
+                <a
+                    class="align-items-center d-flex navbar-brand"
+                    href="/"
+                    aria-label="Beranda ArX Link"
+                >
+                    <img
+                        alt="Logo ArX Link"
+                        class="rounded shadow-sm"
+                        decoding="async"
+                        fetchpriority="high"
+                        loading="lazy"
+                        src="icon.png"
+                        width="24"
+                        height="24"
+                    />
+                    <span class="fw-semibold h5 mb-0 ms-2">
+                        ArX <span class="text-primary">Link</span>
+                    </span>
+                </a>
+
+                <button
+                    class="btn btn-ghost position-relative"
+                    type="button"
+                    @click="shareLink"
+                    aria-label="Bagikan profil ini"
+                >
+                    <i
+                        x-show="!copied"
+                        class="bi bi-share-fill"
+                        aria-hidden="true"
+                    ></i>
+                    <i
+                        x-show="copied"
+                        class="bi bi-check-lg text-success"
+                        aria-hidden="true"
+                        x-cloak
+                    ></i>
+                    <span
+                        x-show="copied"
+                        class="position-absolute top-100 start-50 translate-middle-x mt-2 badge bg-success"
+                        x-transition
+                        x-cloak
+                    >
+                        Disalin!
+                    </span>
+                </button>
+            </div>
+        </header>
+
+        <!-- Main Content Area -->
+        <main class="container flex-grow-1 p-3">
+            <!-- Profile Photo -->
+            <img
+                alt="Foto Profil GitHub Arya Putra Sadewa"
+                class="d-block img-thumbnail mx-auto mt-3 rounded-circle shadow profile-avatar"
+                data-aos="fade-down"
+                data-aos-delay="50"
+                decoding="async"
+                fetchpriority="high"
+                loading="lazy"
+                src="https://avatars.githubusercontent.com/u/296531533"
+                width="112"
+                height="112"
+            />
+
+            <!-- Name and Verification Badge -->
+            <h1
+                class="fw-semibold h3 mt-4 text-center"
+                data-aos="zoom-in"
+                data-aos-delay="100"
+            >
+                Arya Putra Sadewa
+                <i
+                    class="align-middle bi bi-patch-check-fill fs-6 text-primary"
+                    aria-hidden="true"
+                ></i>
+            </h1>
+
+            <!-- Job Title / Profession -->
+            <p
+                class="mb-4 text-muted text-center"
+                data-aos="zoom-in"
+                data-aos-delay="150"
+            >
+                Teknik Informatika | Junior Web Developer
+            </p>
+
+            <!-- Semantic Navigation List of Social Links -->
+            <nav class="w-100" aria-label="Daftar Tautan Sosial">
+                <ul class="g-3 list-unstyled row mb-0">
+                    <!-- Email -->
+                    <li class="col-12" data-aos="fade-up" data-aos-delay="300">
+                        <div class="list-group link-card shadow-sm">
+                            <a
+                                class="align-items-center d-flex focus-ring-primary-custom list-group-item list-group-item-action p-3"
+                                href="mailto:arxdev40@gmail.com"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label="Kirim email ke arxdev40@gmail.com (membuka aplikasi email)"
+                            >
+                                <img
+                                    alt="Logo Gmail"
+                                    class="border me-3 rounded shadow-sm"
+                                    decoding="async"
+                                    fetchpriority="high"
+                                    loading="lazy"
+                                    src="img/gmail.webp"
+                                    width="48"
+                                    height="48"
+                                />
+                                <span class="d-flex flex-column mb-0 me-auto">
+                                    <span class="fw-semibold text-dark"
+                                        >Email</span
+                                    >
+                                    <small class="text-secondary"
+                                        >arxdev40@gmail.com</small
+                                    >
+                                </span>
+                                <i
+                                    class="align-self-start bi bi-box-arrow-up-right text-muted"
+                                    aria-hidden="true"
+                                ></i>
+                            </a>
+                        </div>
+                    </li>
+
+                    <!-- Facebook -->
+                    <li class="col-12" data-aos="fade-up" data-aos-delay="450">
+                        <div class="list-group link-card shadow-sm">
+                            <a
+                                class="align-items-center d-flex focus-ring-primary-custom list-group-item list-group-item-action p-3"
+                                href="https://facebook.com/arxdev40"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label="Buka profil Facebook ArX Developer di tab baru"
+                            >
+                                <img
+                                    alt="Logo Facebook"
+                                    class="border me-3 rounded shadow-sm"
+                                    decoding="async"
+                                    fetchpriority="high"
+                                    loading="lazy"
+                                    src="img/facebook.webp"
+                                    width="48"
+                                    height="48"
+                                />
+                                <span class="d-flex flex-column mb-0 me-auto">
+                                    <span class="fw-semibold text-dark"
+                                        >Facebook</span
+                                    >
+                                    <small class="text-secondary"
+                                        >ArX Developer</small
+                                    >
+                                </span>
+                                <i
+                                    class="align-self-start bi bi-box-arrow-up-right text-muted"
+                                    aria-hidden="true"
+                                ></i>
+                            </a>
+                        </div>
+                    </li>
+
+                    <!-- GitHub -->
+                    <li class="col-12" data-aos="fade-up" data-aos-delay="600">
+                        <div class="list-group link-card shadow-sm">
+                            <a
+                                class="align-items-center d-flex focus-ring-primary-custom list-group-item list-group-item-action p-3"
+                                href="https://github.com/arxdev40"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label="Buka profil GitHub arxdev40 di tab baru"
+                            >
+                                <img
+                                    alt="Logo GitHub"
+                                    class="border me-3 rounded shadow-sm"
+                                    decoding="async"
+                                    fetchpriority="high"
+                                    loading="lazy"
+                                    src="img/github.webp"
+                                    width="48"
+                                    height="48"
+                                />
+                                <span class="d-flex flex-column mb-0 me-auto">
+                                    <span class="fw-semibold text-dark"
+                                        >GitHub</span
+                                    >
+                                    <small class="text-secondary"
+                                        >@arxdev40</small
+                                    >
+                                </span>
+                                <i
+                                    class="align-self-start bi bi-box-arrow-up-right text-muted"
+                                    aria-hidden="true"
+                                ></i>
+                            </a>
+                        </div>
+                    </li>
+
+                    <!-- Instagram -->
+                    <li class="col-12" data-aos="fade-up" data-aos-delay="750">
+                        <div class="list-group link-card shadow-sm">
+                            <a
+                                class="align-items-center d-flex focus-ring-primary-custom list-group-item list-group-item-action p-3"
+                                href="https://instagram.com/arxdev40"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label="Buka profil Instagram arxdev40 di tab baru"
+                            >
+                                <img
+                                    alt="Logo Instagram"
+                                    class="border me-3 rounded shadow-sm"
+                                    decoding="async"
+                                    fetchpriority="high"
+                                    loading="lazy"
+                                    src="img/instagram.webp"
+                                    width="48"
+                                    height="48"
+                                />
+                                <span class="d-flex flex-column mb-0 me-auto">
+                                    <span class="fw-semibold text-dark"
+                                        >Instagram</span
+                                    >
+                                    <small class="text-secondary"
+                                        >@arxdev40</small
+                                    >
+                                </span>
+                                <i
+                                    class="align-self-start bi bi-box-arrow-up-right text-muted"
+                                    aria-hidden="true"
+                                ></i>
+                            </a>
+                        </div>
+                    </li>
+
+                    <!-- Threads -->
+                    <li class="col-12" data-aos="fade-up" data-aos-delay="900">
+                        <div class="list-group link-card shadow-sm">
+                            <a
+                                class="align-items-center d-flex focus-ring-primary-custom list-group-item list-group-item-action p-3"
+                                href="https://threads.net/@arxdev40"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label="Buka profil Threads arxdev40 di tab baru"
+                            >
+                                <img
+                                    alt="Logo Threads"
+                                    class="border me-3 rounded shadow-sm"
+                                    decoding="async"
+                                    fetchpriority="high"
+                                    loading="lazy"
+                                    src="img/threads.webp"
+                                    width="48"
+                                    height="48"
+                                />
+                                <span class="d-flex flex-column mb-0 me-auto">
+                                    <span class="fw-semibold text-dark"
+                                        >Threads</span
+                                    >
+                                    <small class="text-secondary"
+                                        >@arxdev40</small
+                                    >
+                                </span>
+                                <i
+                                    class="align-self-start bi bi-box-arrow-up-right text-muted"
+                                    aria-hidden="true"
+                                ></i>
+                            </a>
+                        </div>
+                    </li>
+
+                    <!-- X -->
+                    <li class="col-12" data-aos="fade-up" data-aos-delay="1050">
+                        <div class="list-group link-card shadow-sm">
+                            <a
+                                class="align-items-center d-flex focus-ring-primary-custom list-group-item list-group-item-action p-3"
+                                href="https://x.com/arxdev40"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                aria-label="Buka profil X arxdev40 di tab baru"
+                            >
+                                <img
+                                    alt="Logo X"
+                                    class="border me-3 rounded shadow-sm"
+                                    decoding="async"
+                                    fetchpriority="high"
+                                    loading="lazy"
+                                    src="img/x.webp"
+                                    width="48"
+                                    height="48"
+                                />
+                                <span class="d-flex flex-column mb-0 me-auto">
+                                    <span class="fw-semibold text-dark">X</span>
+                                    <small class="text-secondary"
+                                        >@arxdev40</small
+                                    >
+                                </span>
+                                <i
+                                    class="align-self-start bi bi-box-arrow-up-right text-muted"
+                                    aria-hidden="true"
+                                ></i>
+                            </a>
+                        </div>
+                    </li>
+                </ul>
+            </nav>
+
+            <!-- Scroll To Top Button -->
+            <div
+                class="bottom-0 end-0 p-3 position-fixed"
+                tabindex="-1"
+                x-data="{ isScrollToTop: false }"
+                @scroll.document="isScrollToTop = (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200)"
+            >
+                <button
+                    class="btn btn-secondary btn-lg btn-fab lh-1 rounded-circle"
+                    id="scroll-to-top"
+                    type="button"
+                    @click="window.scrollTo({ top: 0, behavior: 'smooth' })"
+                    x-show="isScrollToTop"
+                    x-transition
+                    aria-label="Kembali ke atas"
+                >
+                    <i class="bi bi-arrow-up pe-none" aria-hidden="true"></i>
+                </button>
+            </div>
+        </main>
+
+        <!-- Footer -->
+        <footer class="container p-3 text-center text-secondary">
+            &copy; <span x-text="(new Date()).getFullYear()"></span>
+            <a
+                class="text-decoration-none text-primary fw-semibold"
+                href="https://arxdev40.github.io/arxlink/"
+                >ArX Link</a
+            >. Semua hak dilindungi.
+        </footer>
+
+        <!-- Javascript Libraries -->
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+        <script
+            defer
+            src="https://cdn.jsdelivr.net/npm/alpinejs/dist/cdn.min.js"
+        ></script>
+        <script src="https://cdn.jsdelivr.net/npm/aos/dist/aos.min.js"></script>
+        <script src="js/app.min.js"></script>
+    </body>
+</html>
+
